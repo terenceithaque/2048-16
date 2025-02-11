@@ -20,7 +20,4 @@ def base16(nombre:int) -> str:
     return n
 
 
-# Tests
-for n in range(8193):
-    if n % 2048 == 0:
-        print(n, ":", base16(n))
+
