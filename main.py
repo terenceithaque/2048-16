@@ -2,5 +2,6 @@
 # Importer les modules nécessaires au jeu
 import modules.nombre as nb
 import modules.grille as grl
+import modules.mouvement as mvm
 
 
