@@ -3,8 +3,12 @@ import random # Importer le module random
 
 def generer() -> int:
     """Génère un nombre au hasard, 2 ou 4 selon des probabilités"""
-    # Logique à implémenter ici
-    pass
+    probabilite_4 = random.randint(0, 100) # Probabilité de générer un 4
+    # Générer un 4 seulement si la probabilité d'en générer un est supérieure ou égale à 67 %
+    if probabilite_4 >= 67:
+        return 4
+    
+    return 2
 
 def base16(nombre:int) -> str:
     """Renvoie un nombre converti en base 16 sans les caractères de début de la fonction traditionelle hex(), sous forme de
