@@ -22,7 +22,20 @@ def entree(message="Choisir une direction") -> str:
     return entree
     
     
-def deplacer_nombres(direction:str, grille:list) -> None:
-    "Déplace les nombres d'une grille dans une direction donnée"
-    # Gérer la logique des déplacements
-    pass
+def deplacer_nombres(direction:str, grille:list) -> grille:
+    "Déplace les nombres d'une grille dans une direction donnée. Renvoie la grille actualisée."
+    # Gérer la direction "haut"
+    if direction == "haut":
+        # Parcourir la grille 
+        for ligne in grille:
+            pass
+        
+    elif direction == "bas":
+        pass
+    
+    elif direction == "gauche":
+        pass
+    
+    elif direction == "droite":
+        pass
+    
