@@ -1,7 +1,7 @@
 "grille.py permet de générer une grille de jeu."
 
 
-def generer(element:0) -> list:
+def generer(element=0) -> list:
     "Génère une grille de jeu de dimension 4*4, avec l'élément spécifié à chaque case."
     return [[element]*4]*4
 

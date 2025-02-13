@@ -4,18 +4,26 @@ import nombre
 import grille
 import mouvement as mov
 
-grille_jeu = grille.generer(1)
-print(grille_jeu)
-print(grille.est_pleine(grille_jeu))
+
 
 
 
 def jeu():
     "Boucle principale du jeu"
-    # Initialiser la variable d'exécution
+    # Préparation du jeu et initialisation de la variable d'exécution
+    grille_jeu = grille.generer()
+    grille_jeu[0][0] = nombre.generer()
+    score_joueur = 0
+    
     execution = True
     while execution:
-        pass
+        # Demander dans quelle direction déplacer les nombres
+        entree = mov.entree("Entrer une direction (haut, bas, droite ou gauche) ou une commande:")
+        
+        
+# Lancer le jeu
+jeu()
+        
         
 
 
