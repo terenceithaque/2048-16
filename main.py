@@ -1,8 +1,12 @@
 "main.py contient la logique du jeu"
 # Importer les modules nécessaires au jeu
-import modules.nombre as nombre
-import modules.grille as grille
-import modules.mouvement as mov
+import nombre
+import grille
+import mouvement as mov
+
+grille_jeu = grille.generer(1)
+print(grille_jeu)
+print(grille.est_pleine(grille_jeu))
 
 
 
@@ -11,6 +15,7 @@ def jeu():
     # Initialiser la variable d'exécution
     execution = True
     while execution:
+        pass
         
 
 
