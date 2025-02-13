@@ -10,8 +10,6 @@ Les fichiers utilisés par le jeu:
 
     main.py : contient la logique du jeu (boucles, variables, etc).
 
-    Dans un dossier séparé:
-
     nombre.py : contient deux fonctions -> generer() et base16(). generer() renvoie un nombre au hasard (généralement 2 ou 4, en fonction de probabilités tirées au hasard) et base16() le convertit en hexadécimal SANS les caractères de début de la fonction hex().
 
     grille.py : ne contient qu'une fonction -> generer(). generer() renvoie une liste de listes représentant la grille de jeu.
