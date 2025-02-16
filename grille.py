@@ -16,6 +16,8 @@ class Grille:
         "Vérifie si la grille de jeu est pleine (aucun 0 présent) et renvoie un booléen"
         return all(0 not in ligne for ligne in self.contenu)
     
-    
+    def dessiner(self, ecran:pygame.Surface) -> None:
+        "Dessine la grille à l'écran."
+        pass
     
 
