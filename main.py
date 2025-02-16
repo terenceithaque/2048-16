@@ -21,12 +21,16 @@ def jeu():
     
     execution = True
     while execution:
+        fenetre.fill((255, 255, 255))
         # Obtenir les touches pressées par l'utilisateur
         touches = pygame.key.get_pressed()
         # Gérer les événements du jeu
         for evenement in pygame.event.get():
             if evenement.type == pygame.QUIT: # Si le joueur veut arrêter de jouer
                 execution = False # Arrêter l'exécution
+
+            if evenement.type == pygame.MOUSEMOTION:
+                print(pygame.mouse.get_pos())    
 
         
         if touches[pygame.K_UP]: # Si la touche "flèche vers le haut est pressée"
@@ -39,7 +43,13 @@ def jeu():
             print("Déplacement vers la gauche.")
 
         if touches[pygame.K_RIGHT]: # Si la touche "flèche vers la droite est pressée"
-            print("Déplacement vers la droite.")              
+            print("Déplacement vers la droite.")
+
+
+
+        # Afficher la grille et mettre à jour l'affichage
+        grille_jeu.dessiner(fenetre)
+        pygame.display.flip()                 
         
         
 # Lancer le jeu
