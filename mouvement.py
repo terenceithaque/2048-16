@@ -3,23 +3,11 @@
 
 # Liste des directions autorisées
 directions_autorisees = ["haut", "bas", "gauche", "droite"]
-# Entrées spéciales qui ne sont pas des directions mais agissent sur le jeu.
-# Par exemple "q" pour quitter
-entrees_speciales = ["q"]
 
 
 
-def entree(message="Choisir une direction") -> str:
-    "Demande une direction ou une entrée à l'utilisateur, et recommence tant qu'elle est invalide."
-    # Demander la direction de déplacement des nombres ou l'entrée au joueur
-    entree = input(message)
-    
-    # Redemander tant que la direction fournie est invalide ou que l'entrée fournie est invalide.
-    while entree.lower() not in directions_autorisees and not entree in entrees_speciales:
-        print("Direction ou entrée invalide.")
-        entree = input(message)
-    
-    return entree
+
+
     
     
 def deplacer_nombres(direction:str, grille:list) -> list:
@@ -29,9 +17,18 @@ def deplacer_nombres(direction:str, grille:list) -> list:
         # Parcourir la grille 
         for ligne in grille:
             pass
-        
+
+    # Gérer la direction "bas"    
     elif direction == "bas":
-        pass
+        # Parcourir les lignes de la grille
+        for ligne in range(len(grille) -1):
+            for colonne in range(len(grille[ligne])): # Pour chaque colonne de la ligne actuelle
+                # Si le nombre dans la case actuelle correspond à celui de la case dans la ligne suivante
+                if grille[ligne][colonne] == grille[ligne+1][colonne]:
+                    # Vider la case actuelle et multiplier le nombre de la ligne suivante par 2
+                    grille[ligne][colonne] = 0
+                    grille[ligne+1][colonne]*=2
+
     
     elif direction == "gauche":
         pass

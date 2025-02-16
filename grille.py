@@ -1,5 +1,6 @@
 "grille.py permet de générer une grille de jeu."
 import pygame
+import nombre
 
 
 class Grille:
@@ -7,6 +8,7 @@ class Grille:
     def __init__(self, taille=4):
         "Constructeur de la grille"
         self.contenu = self.generer(0) # Générer le contenu de la grille avec uniquement des 0
+        self.contenu[0][0] = nombre.generer()
         self.taille = 4 # Taille de la grille
 
     def generer(self, element=0) -> list:

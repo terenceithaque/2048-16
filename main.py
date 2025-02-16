@@ -16,7 +16,6 @@ def jeu():
     fenetre = pygame.display.set_mode((800, 600))
     pygame.display.set_caption("2048-16")
     grille_jeu = grille.Grille()
-    grille_jeu.contenu[0][0] = nombre.generer()
     score_joueur = 0
     
     execution = True
@@ -35,15 +34,26 @@ def jeu():
         
         if touches[pygame.K_UP]: # Si la touche "flèche vers le haut est pressée"
             print("Déplacement vers le haut.")
+            mov.deplacer_nombres("haut", grille_jeu.contenu)
+            print("Grille de jeu:", grille_jeu.contenu)
 
         if touches[pygame.K_DOWN]: # Si la touche "flèche vers le bas est pressée"
             print("Déplacement vers le bas.")
+            mov.deplacer_nombres("bas", grille_jeu.contenu)
+            print("Grille de jeu:", grille_jeu.contenu)
 
         if touches[pygame.K_LEFT]: # Si la touche "flèche vers la gauche est pressée"
             print("Déplacement vers la gauche.")
+            mov.deplacer_nombres("gauche", grille_jeu.contenu)
+            print("Grille de jeu:", grille_jeu.contenu)
 
         if touches[pygame.K_RIGHT]: # Si la touche "flèche vers la droite est pressée"
             print("Déplacement vers la droite.")
+            mov.deplacer_nombres("droite", grille_jeu.contenu)
+            print("Grille de jeu:", grille_jeu.contenu)
+
+
+           
 
 
 
