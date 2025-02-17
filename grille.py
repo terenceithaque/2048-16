@@ -9,12 +9,13 @@ class Grille:
         "Constructeur de la grille"
         self.contenu = self.generer(0) # Générer le contenu de la grille avec uniquement des 0
         self.contenu[0][0] = nombre.generer()
+        print("Contenu de la grille :", self.contenu)
         self.taille = 4 # Taille de la grille
-        self.police_nombres = pygame.font.Font(None, 20) # Police de caractères pour afficher les nombres
+        self.police_nombres = pygame.font.Font(None, 100) # Police de caractères pour afficher les nombres
 
     def generer(self, element=0) -> list:
         "Génère une grille de jeu de dimension 4*4, avec l'élément spécifié à chaque case."
-        return [[element]*4]*4
+        return [[element for _ in range(4)] for _ in range(4)]
 
     def est_pleine(self) -> bool:
         "Vérifie si la grille de jeu est pleine (aucun 0 présent) et renvoie un booléen"
@@ -43,8 +44,9 @@ class Grille:
         # Couleurs des nombres à afficher dans les cases
 
         couleurs = {
-            nombre.base16(2): (255, 255, 255),
-            nombre.base16(4): (245, 245, 245),
+            nombre.base16(0): (0, 0, 0),
+            nombre.base16(2): (22, 22, 22),
+            nombre.base16(4): (128, 114, 19),
             nombre.base16(8) : (255, 165, 0),
             nombre.base16(16): (255, 69, 0),
             nombre.base16(32): (238, 130, 238),
@@ -68,9 +70,10 @@ class Grille:
 
         for i in range(self.taille):
             # Dessiner les lignes horizontales
-            for i in range(self.taille + 1):
-                pygame.draw.line(ecran, (128, 128, 128), (0, i*(hauteur_case + marge)), (self.taille * (largeur_case + marge), i*(hauteur_case + marge)), 10)
-                #n = self.police_nombres.render()
+            for y in range(self.taille + 1):
+                pygame.draw.line(ecran, (128, 128, 128), (0, y*(hauteur_case + marge)), (self.taille * (largeur_case + marge), y*(hauteur_case + marge)), 10)
+            
+            
 
 
             # Dessiner les lignes horizontales
@@ -79,4 +82,24 @@ class Grille:
                              (j * (largeur_case + marge), self.taille * (hauteur_case + marge)), 10)
 
     
+        # Afficher les nombres dans chaque case
+        #ecran.fill((0, 0, 0))
+        for ligne in range(self.taille):
+            for col in range(self.taille):
+                valeur = self.contenu[ligne][col] # Récupérer le contenu de chaque case de la grille
+                #print(valeur)
+                if valeur != 0: # Si la valeur est différente de 0 (case non vide)
+                    # L'afficher en base 16 dans la grille graphique
+                    #valeur = nombre.base16(valeur)
+                    affichage = self.police_nombres.render(str(valeur), True, couleurs[nombre.base16(valeur)])
+                    # Récupérer les coordonnées cartésiennes de la ligne et de la colonne actuelle pour l'affichage.
+                    pos_x, pos_y = self.coordonnees(ligne, col, hauteur_case, largeur_case, marge)
+
+                    # Centrer le texte
+                    rect_texte = affichage.get_rect()
+                    pos_x += (largeur_case - rect_texte.width) // 2
+                    pos_y += (hauteur_case - rect_texte.height) // 2
+
+                    # Afficher le texte
+                    ecran.blit(affichage, (pos_x, pos_y))
 
