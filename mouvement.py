@@ -23,12 +23,14 @@ def deplacer_nombres(direction:str, grille:list) -> list:
                     if grille[ligne][colonne] == grille[ligne+1][colonne]:
                         grille[ligne][colonne] = 0 # Vider la case actuelle
                         grille[ligne+1][colonne]*= 2 # Multiplier le nombre dans la case supérieure par deux
+                        #break
 
                     # ou que le nombre de la case supérieure vaut zéro
                     elif grille[ligne+1][colonne] == 0: 
                         # Déplacer le nombre de la case actuelle vers la case supérieure
                         grille[ligne+1][colonne] = grille[ligne][colonne]
-                        grille[ligne][colonne] = 0    
+                        grille[ligne][colonne] = 0
+                        #break    
             
 
     # Gérer la direction "bas"    
@@ -42,13 +44,15 @@ def deplacer_nombres(direction:str, grille:list) -> list:
                     # Vider la case actuelle et multiplier le nombre de la case inférieure par 2
                     grille[ligne][colonne] = 0
                     grille[ligne+1][colonne]*=2
+                    #break
 
                 # ou que la valeur de la case dans la ligne suivante est égale à 0
 
                 elif grille[ligne+1][colonne] == 0:
                     # Déplacer le nombre de la case actuelle vers la case inférieure
                     grille[ligne+1][colonne] = grille[ligne][colonne]
-                    grille[ligne][colonne] = 0   
+                    grille[ligne][colonne] = 0
+                    #break   
 
     
     elif direction == "gauche":

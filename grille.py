@@ -1,6 +1,8 @@
 "grille.py permet de générer une grille de jeu."
+from turtle import color
 import pygame
 import nombre
+import random
 
 
 class Grille:
@@ -20,6 +22,11 @@ class Grille:
     def est_pleine(self) -> bool:
         "Vérifie si la grille de jeu est pleine (aucun 0 présent) et renvoie un booléen"
         return all(0 not in ligne for ligne in self.contenu)
+    
+
+    def nouveau_nombre(self):
+        "Génère un nouveau nombre dans une case libre choisie au hasard"
+        pass
     
 
     def coordonnees(self, ligne=0, col=0, hauteur_case=145, largeur_case=195, marge=5) -> tuple:
