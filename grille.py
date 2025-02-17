@@ -42,11 +42,7 @@ class Grille:
         return pos_cases_vides            
 
 
-    
 
-    def nouveau_nombre(self):
-        "Génère un nouveau nombre dans une case libre choisie au hasard"
-        pass
     
 
     def coordonnees(self, ligne=0, col=0, hauteur_case=145, largeur_case=195, marge=5) -> tuple:
