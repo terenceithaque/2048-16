@@ -20,6 +20,8 @@ def jeu():
     
     execution = True
     while execution:
+
+        print("Coordonnées (x, y)  de (2, 2) :", grille_jeu.coordonnees(2, 2, 145, 195, 5))
         fenetre.fill((255, 255, 255))
         # Obtenir les touches pressées par l'utilisateur
         touches = pygame.key.get_pressed()
