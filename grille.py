@@ -12,7 +12,7 @@ class Grille:
         self.contenu = self.generer(0) # Générer le contenu de la grille avec uniquement des 0
         self.contenu[0][0] = nombre.generer()
         print("Contenu de la grille :", self.contenu)
-        self.taille = 4 # Taille de la grille
+        self.taille = len(self.contenu) # Taille de la grille
         self.police_nombres = pygame.font.Font(None, 100) # Police de caractères pour afficher les nombres
 
     def generer(self, element=0) -> list:
@@ -22,6 +22,26 @@ class Grille:
     def est_pleine(self) -> bool:
         "Vérifie si la grille de jeu est pleine (aucun 0 présent) et renvoie un booléen"
         return all(0 not in ligne for ligne in self.contenu)
+
+
+    def cases_vides(self) -> list:
+        "Calcule la position de chaque case vide dans la grille et renvoie une liste de tuples, un pour chaque position."
+
+        pos_cases_vides = [] # Liste contenant la position de chaque case vide
+
+        # Parcourir chaque ligne de la grille
+        for ligne in range(self.taille):
+            # Parcourir chaque colonne de la ligne
+            for colonne in range(len(self.contenu[ligne])):
+                if self.contenu[ligne][colonne] == 0: # Si le contenu de la case aux coordonnées (ligne, colonne) vaut zéro, alors elle est vide
+                    # Ajouter le tuple de coordonnées (ligne, colonne) à la liste
+                    pos_cases_vides.append((ligne, colonne))
+
+
+        # Quand toutes les positions sont trouvées, renvoyer la liste de tuples
+        return pos_cases_vides            
+
+
     
 
     def nouveau_nombre(self):
