@@ -6,6 +6,7 @@ pygame.init()
 import nombre
 import grille
 import mouvement as mov
+from tkinter import messagebox
 
 
 
@@ -22,7 +23,7 @@ def jeu():
     pygame.time.set_timer(deplacement_nombres, 100) # L'événement de déplacement des nombres a lieu toutes les 100 millisecondes
     
     execution = True
-    while execution:
+    while execution and not grille_jeu.est_pleine():
 
         #print("Coordonnées (x, y)  de (2, 2) :", grille_jeu.coordonnees(2, 2, 145, 195, 5))
         fenetre.fill((255, 255, 255))
@@ -90,7 +91,11 @@ def jeu():
 
         # Afficher la grille et mettre à jour l'affichage
         grille_jeu.dessiner(fenetre)
-        pygame.display.flip()                 
+        pygame.display.flip()  
+
+
+    """if grille_jeu.est_pleine(): # Si la grille de jeu est pleine
+        messagebox.showinfo("Partie terminée", "La grille est pleine. Partie terminée !")"""                   
         
         
 # Lancer le jeu

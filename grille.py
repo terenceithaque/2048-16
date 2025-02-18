@@ -1,5 +1,4 @@
 "grille.py permet de générer une grille de jeu."
-from turtle import color
 import pygame
 import nombre
 import random
