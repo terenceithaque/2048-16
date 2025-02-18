@@ -17,18 +17,19 @@ def deplacer_nombres(direction:str, grille:list) -> list:
         # Parcourir la grille depuis le bas vers le haut 
         for ligne in range(len(grille) -1, -1, -1):
             # Parcourir chaque colonne de la grille
+            print("Ligne :", grille[ligne])
             for colonne in range(len(grille[ligne])):
                 if ligne < len(grille) -1:
                     # Si le nombre dans la case actuelle correspond à celui de la case supérieure
-                    if grille[ligne][colonne] == grille[ligne+1][colonne]:
-                        grille[ligne][colonne] = 0 # Vider la case actuelle
-                        grille[ligne+1][colonne]*= 2 # Multiplier le nombre dans la case supérieure par deux
+                    if grille[ligne-1][colonne] == grille[ligne][colonne]:
+                        grille[ligne][colonne]*=2 # Multiplier le nombre dans la case supérieure par deux
+                        grille[ligne-1][colonne] = 0 # Vider la case actuelle
                         #break
 
                     # ou que le nombre de la case supérieure vaut zéro
-                    elif grille[ligne+1][colonne] == 0: 
+                    elif grille[ligne-1][colonne] == 0: 
                         # Déplacer le nombre de la case actuelle vers la case supérieure
-                        grille[ligne+1][colonne] = grille[ligne][colonne]
+                        grille[ligne-1][colonne] = grille[ligne][colonne]
                         grille[ligne][colonne] = 0
                         #break    
             
