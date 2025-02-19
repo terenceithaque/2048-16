@@ -24,3 +24,4 @@ Les fichiers utilisés par le jeu:
 Bugs à régler:
         - Certaines qui fusionnent en ignorant les autres situées entre elles avec des nombres différents.
         - Plusieurs cases se fusionnent d'un coup quand elles sont compatibles.
+        - Les nombres sur la dernière ligne ne se déplacent pas en haut.
