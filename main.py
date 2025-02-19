@@ -42,7 +42,7 @@ def jeu():
 
                 if touches[pygame.K_UP]: # Si la touche "flèche vers le haut est pressée"
                     print("Déplacement vers le haut.")
-                    mov.deplacer_nombres("haut", grille_jeu.contenu)
+                    mov.deplacer_nombres("haut", grille_jeu)
                     print("Grille de jeu:", grille_jeu.contenu)
                     print("Positions des cases vides :", grille_jeu.cases_vides())
                     # Choisir une case vide au hasard où générer un nouveau nombre
@@ -56,7 +56,7 @@ def jeu():
 
                 if touches[pygame.K_DOWN]: # Si la touche "flèche vers le bas est pressée"
                     print("Déplacement vers le bas.")
-                    mov.deplacer_nombres("bas", grille_jeu.contenu)
+                    mov.deplacer_nombres("bas", grille_jeu)
                     print("Grille de jeu:", grille_jeu.contenu)
                     print("Positions des cases vides :", grille_jeu.cases_vides())
                     pos_nouveau_nombre = random.choice(grille_jeu.cases_vides())
@@ -68,7 +68,7 @@ def jeu():
 
                 if touches[pygame.K_LEFT]: # Si la touche "flèche vers la gauche est pressée"
                     print("Déplacement vers la gauche.")
-                    mov.deplacer_nombres("gauche", grille_jeu.contenu)
+                    mov.deplacer_nombres("gauche", grille_jeu)
                     print("Grille de jeu:", grille_jeu.contenu)
                     print("Positions des cases vides :", grille_jeu.cases_vides())
                     pos_nouveau_nombre = random.choice(grille_jeu.cases_vides())
@@ -80,7 +80,7 @@ def jeu():
 
                 if touches[pygame.K_RIGHT]: # Si la touche "flèche vers la droite est pressée"
                     print("Déplacement vers la droite.")
-                    mov.deplacer_nombres("droite", grille_jeu.contenu)
+                    mov.deplacer_nombres("droite", grille_jeu)
                     print("Grille de jeu:", grille_jeu.contenu)
                     print("Positions des cases vides :", grille_jeu.cases_vides())
                     pos_nouveau_nombre = random.choice(grille_jeu.cases_vides())
