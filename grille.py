@@ -94,7 +94,7 @@ class Grille:
     def fusion_gauche(self):
         "Vérifie si une ou plusieurs fusions de nombres vers la gauche sont possibles."
         # Pour chaque ligne de la grille
-        for ligne in range(len(self.contenu)):
+        for ligne in range(self.taille):
             # Parcourir toutes les colonnes à partir de la 2ème position
             for colonne in range(1, len(self.contenu)):
                 # Si le nombre de la case actuelle correpond à celui de la case à gauche
@@ -105,7 +105,22 @@ class Grille:
                 elif self.contenu[ligne][colonne-1] == 0:
                     return True
 
-        return False                
+        return False
+
+    def fusion_droite(self):
+        "Vérifie si une ou plusieurs fusions de nombres vers la droite sont possibles."
+         # Parcourir toutes les lignes
+        for ligne in range(self.taille):
+            for colonne in range(len(self.contenu[ligne]) -1):
+                # Si le nombre de la case actuelle correpond à celui de la case juste à droite
+                if self.contenu[ligne][colonne] == self.contenu[ligne][colonne+1]:
+                    return True
+
+                # Si la case à droite est vide, alors des fusions sont encore possibkes
+                elif self.contenu[ligne][colonne+1] == 0:
+                    return True
+
+        return False                        
                         
 
 

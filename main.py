@@ -23,7 +23,8 @@ def jeu():
     pygame.time.set_timer(deplacement_nombres, 100) # L'événement de déplacement des nombres a lieu toutes les 100 millisecondes
     
     execution = True
-    while execution and not grille_jeu.est_pleine():
+    # Tant que le jeu est en cours d'exécution, que la grille n'est pas pleine ou que des fusions sont toujours possibles
+    while execution and not grille_jeu.est_pleine() or any([grille_jeu.fusion_haut(), grille_jeu.fusion_bas(), grille_jeu.fusion_gauche(), grille_jeu.fusion_droite()]):
 
         #print("Coordonnées (x, y)  de (2, 2) :", grille_jeu.coordonnees(2, 2, 145, 195, 5))
         fenetre.fill((255, 255, 255))
@@ -50,6 +51,8 @@ def jeu():
                     col = pos_nouveau_nombre[1] # Colonne où se situe la case choisie
                     # Générer le nouveau nombre et le placer à la case libre choisie dans la grille
                     grille_jeu.contenu[ligne][col] = nombre.generer()
+                    print("Fusions possibles vers le haut :", grille_jeu.fusion_haut())
+
 
                 if touches[pygame.K_DOWN]: # Si la touche "flèche vers le bas est pressée"
                     print("Déplacement vers le bas.")
@@ -61,6 +64,7 @@ def jeu():
                     col = pos_nouveau_nombre[1] # Colonne où se situe la case choisie
                     # Générer le nouveau nombre et le placer à la case libre choisie dans la grille
                     grille_jeu.contenu[ligne][col] = nombre.generer()
+                    print("Fusions possibles vers le bas:", grille_jeu.fusion_bas())
 
                 if touches[pygame.K_LEFT]: # Si la touche "flèche vers la gauche est pressée"
                     print("Déplacement vers la gauche.")
@@ -72,6 +76,7 @@ def jeu():
                     col = pos_nouveau_nombre[1] # Colonne où se situe la case choisie
                     # Générer le nouveau nombre et le placer à la case libre choisie dans la grille
                     grille_jeu.contenu[ligne][col] = nombre.generer()
+                    print("Fusions possibles vers la gauche:", grille_jeu.fusion_gauche())
 
                 if touches[pygame.K_RIGHT]: # Si la touche "flèche vers la droite est pressée"
                     print("Déplacement vers la droite.")
@@ -83,6 +88,7 @@ def jeu():
                     col = pos_nouveau_nombre[1] # Colonne où se situe la case choisie
                     # Générer le nouveau nombre et le placer à la case libre choisie dans la grille
                     grille_jeu.contenu[ligne][col] = nombre.generer()
+                    print("Fusions possibles vers la droite :", grille_jeu.fusion_droite())
 
 
            
@@ -94,8 +100,7 @@ def jeu():
         pygame.display.flip()  
 
 
-    """if grille_jeu.est_pleine(): # Si la grille de jeu est pleine
-        messagebox.showinfo("Partie terminée", "La grille est pleine. Partie terminée !")"""                   
+    messagebox.showinfo("Partie terminée !", "La partie est terminée.")                  
         
         
 # Lancer le jeu
