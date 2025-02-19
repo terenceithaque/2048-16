@@ -69,11 +69,43 @@ class Grille:
                     if self.contenu[ligne-1][colonne] == self.contenu[ligne][colonne]:
                         return True
                     
+                    # Si la case supérieure est vide, il reste des fusions possibles
+                    elif self.contenu[ligne-1][colonne] == 0:
+                        return True
+                    
         return False
 
     def fusion_bas(self):
         "Vérifie si une ou plusieurs fusions de nombres vers le bas sont possibles."
-        pass
+        # Parcourir toutes les lignes de la grille sauf la dernière
+        for ligne in range(self.taille -1):
+            for colonne in range(len(self.contenu[ligne])):
+                # Si le nombre dans la case actuelle correspond à celui de la case inférieure
+                
+                if self.contenu[ligne][colonne] == self.contenu[ligne+1][colonne]:
+                    return True
+                
+                # Si la case inférieure est vide, il reste des fusions possibles
+                elif self.contenu[ligne+1][colonne] == 0:
+                    return True
+                
+        return False
+
+    def fusion_gauche(self):
+        "Vérifie si une ou plusieurs fusions de nombres vers la gauche sont possibles."
+        # Pour chaque ligne de la grille
+        for ligne in range(len(self.contenu)):
+            # Parcourir toutes les colonnes à partir de la 2ème position
+            for colonne in range(1, len(self.contenu)):
+                # Si le nombre de la case actuelle correpond à celui de la case à gauche
+                if self.contenu[ligne][colonne] == self.contenu[ligne][colonne-1]:
+                    return True
+
+                # Si la case à gauche est vide, alors il reste des fusions possibles
+                elif self.contenu[ligne][colonne-1] == 0:
+                    return True
+
+        return False                
                         
 
 
