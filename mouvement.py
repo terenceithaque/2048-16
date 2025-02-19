@@ -57,7 +57,21 @@ def deplacer_nombres(direction:str, grille:list) -> list:
 
     # Gérer la direction "gauche"
     elif direction == "gauche":
-        pass
+        # Parcourir chaque ligne de la grille
+        for ligne in range(len(grille)):
+            # Parcourir toutes les colonnes à partir de la 2ème position
+            for colonne in range(1, len(grille)):
+                # Si le nombre de la case actuelle correpond à celui de la case à gauche
+                if grille[ligne][colonne] == grille[ligne][colonne-1]:
+                    # Fusionner les deux cases et vider l'actuelle
+                    grille[ligne][colonne-1]*=2
+                    grille[ligne][colonne] = 0
+
+                # Si la case à gauche est vide
+                elif grille[ligne][colonne-1] == 0:
+                    # Déplacer le nombre de la case actuelle vers la gauche
+                    grille[ligne][colonne-1] = grille[ligne][colonne]
+                    grille[ligne][colonne] = 0    
     
     # Gérer la direction "droite"
     elif direction == "droite":
