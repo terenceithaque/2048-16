@@ -58,6 +58,26 @@ class Grille:
 
         return (x, y)
     
+
+    def fusion_haut(self) -> bool:
+        "Vérifie si une ou plusieurs fusions de nombres vers le haut sont possibles."
+        # Parcourir toute la grille
+        for ligne in range(self.taille -1, -1, -1):
+            for colonne in range(len(self.contenu[ligne])):
+                if ligne < len(self.contenu) -1:
+                    # Si le nombre de la case supérieure est égale au nombre de la case actuelle, alors des fusions vers le haut sont possibles
+                    if self.contenu[ligne-1][colonne] == self.contenu[ligne][colonne]:
+                        return True
+                    
+        return False
+
+    def fusion_bas(self):
+        "Vérifie si une ou plusieurs fusions de nombres vers le bas sont possibles."
+        pass
+                        
+
+
+    
     def dessiner(self, ecran:pygame.Surface) -> None:
         "Dessine la grille à l'écran."
 
