@@ -61,19 +61,19 @@ def deplacer_nombres(direction:str, grille:list) -> list:
     
     # Gérer la direction "droite"
     elif direction == "droite":
-        # Parcourir toutes les lignes jusqu'à l'avant-dernière
-        for ligne in range(len(grille) -1):
-            for colonne in range(len(grille[ligne])):
+        # Parcourir toutes les lignes
+        for ligne in range(len(grille)):
+            for colonne in range(len(grille[ligne]) -1):
                 # Si le nombre de la case actuelle correpond à celui de la case juste à droite
-                if grille[ligne][colonne] == grille[ligne+1][colonne]:
+                if grille[ligne][colonne] == grille[ligne][colonne+1]:
                     # Fusionner les deux cases et vider l'actuelle
-                    grille[ligne+1][colonne]*=2
+                    grille[ligne][colonne+1]*=2
                     grille[ligne][colonne] = 0
 
                 # Si la case à droite est vide
-                elif grille[ligne+1][colonne] == 0:
+                elif grille[ligne][colonne+1] == 0:
                     # Déplacer le nombre de la case actuelle vers la suivante
-                    grille[ligne+1][colonne] = grille[ligne][colonne]
+                    grille[ligne][colonne+1] = grille[ligne][colonne]
                     grille[ligne][colonne] = 0    
         
     
