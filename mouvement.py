@@ -7,6 +7,9 @@ directions_autorisees = ["haut", "bas", "gauche", "droite"]
 
 
 
+def deplacer_cases(direction:str, grille:grille.Grille) -> list:
+    "Déplace les cases de la grille dans la direction indiquée SANS les fusionner."
+    pass
 
     
     
@@ -16,11 +19,11 @@ def deplacer_nombres(direction:str, grille:grille.Grille) -> list:
     
     if direction == "haut":
         # Parcourir la grille depuis le bas vers le haut 
-        for ligne in range(len(grille.contenu) -1, -1, -1):
+        for ligne in range(grille.taille -1, -1, -1):
             # Parcourir chaque colonne de la grille
             print("Ligne :", grille.contenu[ligne])
             for colonne in range(len(grille.contenu[ligne])):
-                if ligne < len(grille.contenu) -1:
+                if ligne < grille.taille -1:
                     print("Ligne :", ligne)
                     # Si le nombre dans la case actuelle correspond à celui de la case supérieure
                     if grille.contenu[ligne-1][colonne] == grille.contenu[ligne][colonne]:
@@ -39,7 +42,7 @@ def deplacer_nombres(direction:str, grille:grille.Grille) -> list:
     # Gérer la direction "bas"    
     elif direction == "bas":
         # Parcourir les lignes de la grille
-        for ligne in range(len(grille.contenu) -1):
+        for ligne in range(grille.taille -1):
             for colonne in range(len(grille.contenu[ligne])): # Pour chaque colonne de la ligne actuelle
                 # Si le nombre dans la case actuelle correspond à celui de la case inférieure
                 
@@ -60,9 +63,9 @@ def deplacer_nombres(direction:str, grille:grille.Grille) -> list:
     # Gérer la direction "gauche"
     elif direction == "gauche":
         # Parcourir chaque ligne de la grille
-        for ligne in range(len(grille.contenu)):
+        for ligne in range(grille.taille):
             # Parcourir toutes les colonnes à partir de la 2ème position
-            for colonne in range(1, len(grille.contenu)):
+            for colonne in range(1, grille.taille):
                 # Si le nombre de la case actuelle correpond à celui de la case à gauche
                 if grille.contenu[ligne][colonne] == grille.contenu[ligne][colonne-1]:
                     # Fusionner les deux cases et vider l'actuelle
@@ -78,7 +81,7 @@ def deplacer_nombres(direction:str, grille:grille.Grille) -> list:
     # Gérer la direction "droite"
     elif direction == "droite":
         # Parcourir toutes les lignes
-        for ligne in range(len(grille.contenu)):
+        for ligne in range(grille.taille):
             for colonne in range(len(grille.contenu[ligne]) -1):
                 # Si le nombre de la case actuelle correpond à celui de la case juste à droite
                 if grille.contenu[ligne][colonne] == grille.contenu[ligne][colonne+1]:
