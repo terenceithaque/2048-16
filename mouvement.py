@@ -25,16 +25,18 @@ def deplacer_cases(direction:str, grille:grille.Grille) -> list:
                     print(f"Impossible de déplacer {grille.contenu[i][colonne]} aux coordonnées ({i}, {colonne})")    
                            
     # Gérer la direction "bas"
-    """for ligne in range(grille.taille -1):
-        for colonne in range(len(grille.contenu[ligne])):
-            i = ligne
-            # Tant que la case en dessous est vide
-            while i > 0 and grille.contenu[i+1][colonne] == 0:
-                # Déplacer le nombre de la case actuelle SANS fusionner
-                grille.contenu[i+1][colonne] = grille.contenu[i][colonne]
-                grille.contenu[i][colonne] = 0
+    elif direction == "bas":
+        for ligne in range(grille.taille -1):
+            for colonne in range(len(grille.contenu[ligne])):
+                if grille.contenu[ligne][colonne] != 0:
+                    i = ligne
+                    # Tant que la case en dessous est vide
+                    while i < grille.taille -1 and grille.contenu[i+1][colonne] == 0:
+                        # Déplacer le nombre de la case actuelle SANS fusionner
+                        grille.contenu[i+1][colonne] = grille.contenu[i][colonne]
+                        grille.contenu[i][colonne] = 0
 
-            print(f"Impossible de déplacer {grille.contenu[i][colonne]} aux coordonnées ({i}, {colonne})")"""    
+                    print(f"Impossible de déplacer {grille.contenu[i][colonne]} aux coordonnées ({i}, {colonne})")  
 
     
     
