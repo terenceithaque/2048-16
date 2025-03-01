@@ -1,13 +1,10 @@
 "mouvement.py gère les déplacements de nombres dans la grille"
 import grille
-import copy
+
 # Liste des directions autorisées
 directions_autorisees = ["haut", "bas", "gauche", "droite"]
 
 
-class MvmSansFusion:
-    "Classe représentant un mouvement sans fusion"
-    pass
 
 
 def deplacer_cases(direction:str, grille:grille.Grille) -> list:
@@ -15,18 +12,29 @@ def deplacer_cases(direction:str, grille:grille.Grille) -> list:
     # Gérer la direction "haut"
     if direction == "haut":
         # Parcourir toutes les lignes de la grille
-        for ligne in range(grille.taille -1, -1, -1):
+        for ligne in range(grille.taille -1, 0, -1):
             for colonne in range(len(grille.contenu[ligne])):
-                # Si la case au dessus est vide
-                if grille.contenu[ligne-1][colonne] == 0: 
-                    # Déplacer le nombre vers le haut
-                    grille.contenu[ligne-1][colonne] = grille.contenu[ligne][colonne]
-                    grille.contenu[ligne][colonne] = 0
+                if grille.contenu[ligne][colonne] != 0:
+                    i = ligne
+                    # Tant que la case au dessus est vide
+                    while i > 0 and grille.contenu[i-1][colonne] == 0:
+                        # Déplacer le nombre de la case actuelle SANS fusionner
+                        grille.contenu[i-1][colonne] = grille.contenu[i][colonne]
+                        grille.contenu[i][colonne] = 0
 
-                else:
-                    break
+                    print(f"Impossible de déplacer {grille.contenu[i][colonne]} aux coordonnées ({i}, {colonne})")    
+                           
     # Gérer la direction "bas"
-                    
+    """for ligne in range(grille.taille -1):
+        for colonne in range(len(grille.contenu[ligne])):
+            i = ligne
+            # Tant que la case en dessous est vide
+            while i > 0 and grille.contenu[i+1][colonne] == 0:
+                # Déplacer le nombre de la case actuelle SANS fusionner
+                grille.contenu[i+1][colonne] = grille.contenu[i][colonne]
+                grille.contenu[i][colonne] = 0
+
+            print(f"Impossible de déplacer {grille.contenu[i][colonne]} aux coordonnées ({i}, {colonne})")"""    
 
     
     
@@ -43,10 +51,10 @@ def deplacer_nombres(direction:str, grille:grille.Grille) -> list:
         # Parcourir la grille depuis le bas vers le haut 
         for ligne in range(grille.taille -1, -1, -1):
             # Parcourir chaque colonne de la grille
-            print("Ligne :", grille.contenu[ligne])
+            #print("Ligne :", grille.contenu[ligne])
             for colonne in range(len(grille.contenu[ligne])):
                 if ligne < grille.taille -1:
-                    print("Ligne :", ligne)
+                    #print("Ligne :", ligne)
                     # Si le nombre dans la case actuelle correspond à celui de la case supérieure
                     if grille.contenu[ligne-1][colonne] == grille.contenu[ligne][colonne]:
                         grille.contenu[ligne][colonne]*=2 # Multiplier le nombre dans la case supérieure par deux

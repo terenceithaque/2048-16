@@ -41,7 +41,7 @@ def jeu():
             if evenement.type == deplacement_nombres:       
 
                 if touches[pygame.K_UP]: # Si la touche "flèche vers le haut est pressée"
-                    print("Déplacement vers le haut.")
+                    #print("Déplacement vers le haut.")
                     mov.deplacer_nombres("haut", grille_jeu)
                     print("Grille de jeu:", grille_jeu.contenu)
                     print("Positions des cases vides :", grille_jeu.cases_vides())
@@ -55,7 +55,7 @@ def jeu():
 
 
                 if touches[pygame.K_DOWN]: # Si la touche "flèche vers le bas est pressée"
-                    print("Déplacement vers le bas.")
+                    #print("Déplacement vers le bas.")
                     mov.deplacer_nombres("bas", grille_jeu)
                     print("Grille de jeu:", grille_jeu.contenu)
                     print("Positions des cases vides :", grille_jeu.cases_vides())
@@ -67,7 +67,7 @@ def jeu():
                     print("Fusions possibles vers le bas:", grille_jeu.fusion_bas())
 
                 if touches[pygame.K_LEFT]: # Si la touche "flèche vers la gauche est pressée"
-                    print("Déplacement vers la gauche.")
+                    #print("Déplacement vers la gauche.")
                     mov.deplacer_nombres("gauche", grille_jeu)
                     print("Grille de jeu:", grille_jeu.contenu)
                     print("Positions des cases vides :", grille_jeu.cases_vides())
@@ -79,7 +79,7 @@ def jeu():
                     print("Fusions possibles vers la gauche:", grille_jeu.fusion_gauche())
 
                 if touches[pygame.K_RIGHT]: # Si la touche "flèche vers la droite est pressée"
-                    print("Déplacement vers la droite.")
+                    #print("Déplacement vers la droite.")
                     mov.deplacer_nombres("droite", grille_jeu)
                     print("Grille de jeu:", grille_jeu.contenu)
                     print("Positions des cases vides :", grille_jeu.cases_vides())
