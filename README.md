@@ -19,6 +19,8 @@ Les fichiers utilisés par le jeu:
 
     undo.py : Deux fonctions -> capture() et restaure(). capture() copie la liste représentant la grille (utiliser copy.copy() ou copy.deepcopy()), restaure() permet de restaurer un état précédent de la grille.
 
+    historique.py : permet de gérer l'historique des coups joués.
+
 
 
 Bugs à régler:
