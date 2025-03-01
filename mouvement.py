@@ -1,21 +1,43 @@
 "mouvement.py gère les déplacements de nombres dans la grille"
 import grille
-
+import copy
 # Liste des directions autorisées
 directions_autorisees = ["haut", "bas", "gauche", "droite"]
 
 
+class MvmSansFusion:
+    "Classe représentant un mouvement sans fusion"
+    pass
 
 
 def deplacer_cases(direction:str, grille:grille.Grille) -> list:
     "Déplace les cases de la grille dans la direction indiquée SANS les fusionner."
-    pass
+    # Gérer la direction "haut"
+    if direction == "haut":
+        # Parcourir toutes les lignes de la grille
+        for ligne in range(grille.taille -1, -1, -1):
+            for colonne in range(len(grille.contenu[ligne])):
+                # Si la case au dessus est vide
+                if grille.contenu[ligne-1][colonne] == 0: 
+                    # Déplacer le nombre vers le haut
+                    grille.contenu[ligne-1][colonne] = grille.contenu[ligne][colonne]
+                    grille.contenu[ligne][colonne] = 0
+
+                else:
+                    break
+    # Gérer la direction "bas"
+                    
 
     
     
 def deplacer_nombres(direction:str, grille:grille.Grille) -> list:
     "Déplace les nombres d'une grille dans une direction donnée. Renvoie la grille actualisée."
     # Gérer la direction "haut"
+
+    # Tout d'abord, déplacer les cases SANS les fusionner
+    print("Cases avant déplacement :", grille.contenu)
+    deplacer_cases(direction, grille)
+    print("Cases déplacées sans fusion :", grille.contenu)
     
     if direction == "haut":
         # Parcourir la grille depuis le bas vers le haut 
@@ -31,12 +53,12 @@ def deplacer_nombres(direction:str, grille:grille.Grille) -> list:
                         grille.contenu[ligne-1][colonne] = 0 # Vider la case actuelle
                         #break
 
-                    # ou que le nombre de la case supérieure vaut zéro
+                    """# ou que le nombre de la case supérieure vaut zéro
                     elif grille.contenu[ligne-1][colonne] == 0: 
                         # Déplacer le nombre de la case actuelle vers la case supérieure
                         grille.contenu[ligne-1][colonne] = grille.contenu[ligne][colonne]
                         grille.contenu[ligne][colonne] = 0
-                        #break    
+                        #break  """  
             
 
     # Gérer la direction "bas"    
