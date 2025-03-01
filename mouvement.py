@@ -22,7 +22,7 @@ def deplacer_cases(direction:str, grille:grille.Grille) -> list:
                         grille.contenu[i-1][colonne] = grille.contenu[i][colonne]
                         grille.contenu[i][colonne] = 0
 
-                    print(f"Impossible de déplacer {grille.contenu[i][colonne]} aux coordonnées ({i}, {colonne})")    
+                    print(f"Impossible de déplacer {grille.contenu[i][colonne]} aux coordonnées ({i}, {colonne}) vers le haut.")    
                            
     # Gérer la direction "bas"
     elif direction == "bas":
@@ -36,7 +36,7 @@ def deplacer_cases(direction:str, grille:grille.Grille) -> list:
                         grille.contenu[i+1][colonne] = grille.contenu[i][colonne]
                         grille.contenu[i][colonne] = 0
 
-                    print(f"Impossible de déplacer {grille.contenu[i][colonne]} aux coordonnées ({i}, {colonne})")  
+                    print(f"Impossible de déplacer {grille.contenu[i][colonne]} aux coordonnées ({i}, {colonne}) vers le bas.")  
 
     
     
