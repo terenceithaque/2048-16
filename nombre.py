@@ -1,4 +1,4 @@
-"nombres.py permet de générer des nombres aléatoires, de les convertir en base 16"
+"nombre.py permet de générer des nombres aléatoires, de les convertir en base 16"
 import random # Importer le module random
 
 def generer() -> int:
