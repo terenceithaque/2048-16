@@ -7,6 +7,7 @@ import nombre
 import grille
 import mouvement as mov
 import historique
+import undo
 from tkinter import messagebox
 
 
@@ -106,8 +107,17 @@ def jeu():
                     print("Dernier état de la grille :", historique_jeu.etat_grille(len(historique_jeu.contenu)))
 
 
-           
+        # Si le joueur appuie sur contrôle gauche + Z
+        if touches[pygame.K_LCTRL] and touches[pygame.K_z]:
+            # Annuler la dernière action de jeu
+            print("Annulation de la dernière action de jeu...")
+            grille_jeu = undo.defaire(grille_jeu.contenu, historique_jeu)
 
+        # ou sur contrôle droite + Z
+        elif touches[pygame.K_RCTRL] and touches[pygame.K_z]:
+            # Annuler la dernière action de jeu
+            print("Annulation de la dernière action de jeu...")
+            grille_jeu = undo.defaire(grille_jeu, historique_jeu)    
 
 
         # Afficher la grille et mettre à jour l'affichage
