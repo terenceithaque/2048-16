@@ -58,7 +58,7 @@ def jeu():
                     print("Fusions possibles vers le haut :", grille_jeu.fusion_haut())
 
                     historique_jeu.ajouter(grille_jeu.contenu) # Mettre à jour l'historique
-                    print("Dernier état de la grille :", historique_jeu.etat_grille(len(historique_jeu.contenu)))
+                    #print("Dernier état de la grille :", historique_jeu.etat_grille(len(historique_jeu.contenu)))
 
 
                 if touches[pygame.K_DOWN]: # Si la touche "flèche vers le bas est pressée"
@@ -74,7 +74,7 @@ def jeu():
                     #print("Fusions possibles vers le bas:", grille_jeu.fusion_bas())
 
                     historique_jeu.ajouter(grille_jeu.contenu) # Mettre à jour l'historique
-                    print("Dernier état de la grille :", historique_jeu.etat_grille(len(historique_jeu.contenu)))
+                    #print("Dernier état de la grille :", historique_jeu.etat_grille(len(historique_jeu.contenu)))
 
                 if touches[pygame.K_LEFT]: # Si la touche "flèche vers la gauche est pressée"
                     #print("Déplacement vers la gauche.")
@@ -89,7 +89,7 @@ def jeu():
                     #print("Fusions possibles vers la gauche:", grille_jeu.fusion_gauche())
 
                     historique_jeu.ajouter(grille_jeu.contenu) # Mettre à jour l'historique
-                    print("Dernier état de la grille :", historique_jeu.etat_grille(len(historique_jeu.contenu)))
+                    #print("Dernier état de la grille :", historique_jeu.etat_grille(len(historique_jeu.contenu)))
 
                 if touches[pygame.K_RIGHT]: # Si la touche "flèche vers la droite est pressée"
                     #print("Déplacement vers la droite.")
@@ -104,20 +104,20 @@ def jeu():
                     #print("Fusions possibles vers la droite :", grille_jeu.fusion_droite())
 
                     historique_jeu.ajouter(grille_jeu.contenu) # Mettre à jour l'historique
-                    print("Dernier état de la grille :", historique_jeu.etat_grille(len(historique_jeu.contenu)))
+                    #print("Dernier état de la grille :", historique_jeu.etat_grille(len(historique_jeu.contenu)))
 
 
         # Si le joueur appuie sur contrôle gauche + Z
         if touches[pygame.K_LCTRL] and touches[pygame.K_z]:
             # Annuler la dernière action de jeu
             print("Annulation de la dernière action de jeu...")
-            grille_jeu = undo.defaire(grille_jeu.contenu, historique_jeu)
+            grille_jeu.contenu = undo.defaire(grille_jeu.contenu, historique_jeu)
 
         # ou sur contrôle droite + Z
         elif touches[pygame.K_RCTRL] and touches[pygame.K_z]:
             # Annuler la dernière action de jeu
             print("Annulation de la dernière action de jeu...")
-            grille_jeu = undo.defaire(grille_jeu, historique_jeu)    
+            grille_jeu.contenu = undo.defaire(grille_jeu, historique_jeu)    
 
 
         # Afficher la grille et mettre à jour l'affichage
