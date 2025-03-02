@@ -57,7 +57,7 @@ def jeu():
                     print("Fusions possibles vers le haut :", grille_jeu.fusion_haut())
 
                     historique_jeu.ajouter(grille_jeu.contenu) # Mettre à jour l'historique
-                    print("Historique du jeu:", historique_jeu.contenu)
+                    print("Dernier état de la grille :", historique_jeu.etat_grille(len(historique_jeu.contenu)))
 
 
                 if touches[pygame.K_DOWN]: # Si la touche "flèche vers le bas est pressée"
@@ -70,10 +70,10 @@ def jeu():
                     col = pos_nouveau_nombre[1] # Colonne où se situe la case choisie
                     # Générer le nouveau nombre et le placer à la case libre choisie dans la grille
                     grille_jeu.contenu[ligne][col] = nombre.generer()
-                    print("Fusions possibles vers le bas:", grille_jeu.fusion_bas())
+                    #print("Fusions possibles vers le bas:", grille_jeu.fusion_bas())
 
                     historique_jeu.ajouter(grille_jeu.contenu) # Mettre à jour l'historique
-                    print("Historique du jeu:", historique_jeu.contenu)
+                    print("Dernier état de la grille :", historique_jeu.etat_grille(len(historique_jeu.contenu)))
 
                 if touches[pygame.K_LEFT]: # Si la touche "flèche vers la gauche est pressée"
                     #print("Déplacement vers la gauche.")
@@ -85,10 +85,10 @@ def jeu():
                     col = pos_nouveau_nombre[1] # Colonne où se situe la case choisie
                     # Générer le nouveau nombre et le placer à la case libre choisie dans la grille
                     grille_jeu.contenu[ligne][col] = nombre.generer()
-                    print("Fusions possibles vers la gauche:", grille_jeu.fusion_gauche())
+                    #print("Fusions possibles vers la gauche:", grille_jeu.fusion_gauche())
 
                     historique_jeu.ajouter(grille_jeu.contenu) # Mettre à jour l'historique
-                    print("Historique du jeu:", historique_jeu.contenu)
+                    print("Dernier état de la grille :", historique_jeu.etat_grille(len(historique_jeu.contenu)))
 
                 if touches[pygame.K_RIGHT]: # Si la touche "flèche vers la droite est pressée"
                     #print("Déplacement vers la droite.")
@@ -100,10 +100,10 @@ def jeu():
                     col = pos_nouveau_nombre[1] # Colonne où se situe la case choisie
                     # Générer le nouveau nombre et le placer à la case libre choisie dans la grille
                     grille_jeu.contenu[ligne][col] = nombre.generer()
-                    print("Fusions possibles vers la droite :", grille_jeu.fusion_droite())
+                    #print("Fusions possibles vers la droite :", grille_jeu.fusion_droite())
 
                     historique_jeu.ajouter(grille_jeu.contenu) # Mettre à jour l'historique
-                    print("Historique du jeu:", historique_jeu.contenu)
+                    print("Dernier état de la grille :", historique_jeu.etat_grille(len(historique_jeu.contenu)))
 
 
            
