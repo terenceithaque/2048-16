@@ -17,7 +17,7 @@ Les fichiers utilisés par le jeu:
 
     mouvement.py: définit une liste des directions possibles, puis une fonction deplacer_nombres(). Cette fonction prend en paramètre une direction,  une grille sur laquelle opérer le déplacement. GENERE UNE ERREUR SI LA DIRECTION EST INVALIDE.
 
-    undo.py : Deux fonctions -> capture() et restaure(). capture() copie la liste représentant la grille (utiliser copy.copy() ou copy.deepcopy()), restaure() permet de restaurer un état précédent de la grille.
+    undo.py : Deux fonctions -> defaire() et refaire(). defaire() annule le dernier coup (en utilisant un historique des coups joués), refaire() rétablit la dernière action
 
     historique.py : permet de gérer l'historique des coups joués.
 
