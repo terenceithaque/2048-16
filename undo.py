@@ -15,3 +15,8 @@ def defaire(grille_jeu:list, historique_jeu:historique.Historique) -> list:
     
     # Si aucune action ne peut être annulée, renvoyer l'état actuel
     return grille_jeu
+
+
+def refaire(grille_jeu:list, historique_jeu:historique.Historique) -> list:
+    "Refait la dernière action annulée en utilisant un historique du jeu, renvoie la grille actualisée."
+    pass
