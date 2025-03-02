@@ -19,4 +19,10 @@ def defaire(grille_jeu:list, historique_jeu:historique.Historique) -> list:
 
 def refaire(grille_jeu:list, historique_jeu:historique.Historique) -> list:
     "Refait la dernière action annulée en utilisant un historique du jeu, renvoie la grille actualisée."
-    pass
+    
+    # Etat annulé à rétablir, l'actuel pour l'instant
+    etat_annule = copy.deepcopy(grille_jeu)
+    # Récupérer le dernier état enregistré et le renvoyer
+    etat_annule = historique_jeu.etat_grille(len(historique_jeu.contenu))
+    return etat_annule
+

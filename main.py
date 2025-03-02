@@ -117,7 +117,20 @@ def jeu():
         elif touches[pygame.K_RCTRL] and touches[pygame.K_z]:
             # Annuler la dernière action de jeu
             print("Annulation de la dernière action de jeu...")
-            grille_jeu.contenu = undo.defaire(grille_jeu, historique_jeu)    
+            grille_jeu.contenu = undo.defaire(grille_jeu.contenu, historique_jeu)
+
+
+        # Si le joueur appuie sur contrôle gauche + Y
+        if touches[pygame.K_LCTRL] and touches[pygame.K_y]:
+            # Refaire la dernière action annulée
+            print("Restauration de la dernière action...")
+            grille_jeu.contenu = undo.refaire(grille_jeu.contenu, historique_jeu)
+
+        # ou sur contrôle droite + Y
+        elif touches[pygame.K_RCTRL] and touches[pygame.K_y]:
+            # Refaire la dernière action annulée
+            print("Restauration de la dernière action...")
+            grille_jeu.contenu = undo.refaire(grille_jeu.contenu, historique_jeu)            
 
 
         # Afficher la grille et mettre à jour l'affichage
