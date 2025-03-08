@@ -1,4 +1,6 @@
 "mouvement.py gère les déplacements de nombres dans la grille"
+from re import L
+from regex import R
 import grille
 
 # Liste des directions autorisées
@@ -40,7 +42,17 @@ def deplacer_cases(direction:str, grille:grille.Grille) -> list:
 
     # Gérer la direction "gauche"
     elif direction == "gauche":
-        pass                  
+        for ligne in range(grille.taille):
+            for colonne in range(len(grille.contenu[ligne]) -1):
+                i = colonne
+                # Tant que la case actuelle n'est pas vide et que la suivante l'est
+                while grille.contenu[ligne][i] > 0 and grille.contenu[ligne][i+1] == 0:
+                    # Déplacer le nombre de la case SANS fusionner
+                    grille.contenu[ligne][i+1] = grille.contenu[ligne][i]
+                    grille.contenu[ligne][i] = 0
+
+                print(f"Impossible de déplacer {grille.contenu[ligne][i]} aux coordonnées ({ligne}, {i+1}) vers la gauche.")    
+
 
     
     
