@@ -51,7 +51,12 @@ def deplacer_cases(direction:str, grille:grille.Grille) -> list:
                     grille.contenu[ligne][i-1] = grille.contenu[ligne][i]
                     grille.contenu[ligne][i] = 0
 
-                print(f"Impossible de déplacer {grille.contenu[ligne][i]} aux coordonnées ({ligne}, {i+1}) vers la gauche.")    
+                print(f"Impossible de déplacer {grille.contenu[ligne][i]} aux coordonnées ({ligne}, {i+1}) vers la gauche.")
+
+
+    # Gérer la direction "droite"
+    elif direction == "droite":
+        pass                
 
 
     
