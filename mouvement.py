@@ -1,6 +1,4 @@
 "mouvement.py gère les déplacements de nombres dans la grille"
-from re import L
-from regex import R
 import grille
 
 # Liste des directions autorisées
