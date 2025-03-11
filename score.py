@@ -23,7 +23,7 @@ class Score:
     def actualiser(self, points=4) -> int:
         """Actualise le score avec une addition (score + points). Met à jour le meilleur score si besoin.
            Renvoie le score actualisé."""
-        self.valeur += valeur
+        self.valeur += points
         # Mettre à jour le meilleur score si besoin
         if self.valeur > self.valeur_max:
             self.valeur_max = self.valeur
