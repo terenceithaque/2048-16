@@ -17,7 +17,7 @@ class Score:
         # Récupérer la fenêtre de jeu
         self.fenetre = fenetre
         
-   def actualiser(self, points=4) -> int:
+    def actualiser(self, points=4) -> int:
         """Actualise le score avec une addition (score + points). Met à jour le meilleur score si besoin.
            Renvoie le score actualisé."""
         self.valeur += valeur
