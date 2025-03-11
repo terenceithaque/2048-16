@@ -13,7 +13,6 @@ from tkinter import messagebox
 
 
 
-
 def jeu():
     "Boucle principale du jeu"
     # Préparation du jeu et initialisation de la variable d'exécution
@@ -64,11 +63,13 @@ def jeu():
                     #print("Déplacement vers le bas.")
                     mov.deplacer_nombres("bas", grille_jeu)
                     print("Positions des cases vides :", grille_jeu.cases_vides())
-                    pos_nouveau_nombre = random.choice(grille_jeu.cases_vides())
-                    ligne = pos_nouveau_nombre[0] # Ligne où se situe la case libre choisie
-                    col = pos_nouveau_nombre[1] # Colonne où se situe la case choisie
-                    # Générer le nouveau nombre et le placer à la case libre choisie dans la grille
-                    grille_jeu.contenu[ligne][col] = nombre.generer()
+                    # Générer un nouveau nombre dans une case vide
+                    if len(grille_jeu.cases_vides()) > 0:
+                        pos_nouveau_nombre = random.choice(grille_jeu.cases_vides()) # Choisir une case vide au hasard
+                        ligne = pos_nouveau_nombre[0] # Ligne où se situe la case libre choisie
+                        col = pos_nouveau_nombre[1] # Colonne où se situe la case choisie
+                        # Générer le nouveau nombre et le placer à la case libre choisie dans la grille
+                        grille_jeu.contenu[ligne][col] = nombre.generer()
                     #print("Fusions possibles vers le bas:", grille_jeu.fusion_bas())
 
                     historique_jeu.ajouter(grille_jeu.contenu) # Mettre à jour l'historique
@@ -78,12 +79,13 @@ def jeu():
                     #print("Déplacement vers la gauche.")
                     mov.deplacer_nombres("gauche", grille_jeu)
                     print("Positions des cases vides :", grille_jeu.cases_vides())
-                    pos_nouveau_nombre = random.choice(grille_jeu.cases_vides())
-                    ligne = pos_nouveau_nombre[0] # Ligne où se situe la case libre choisie
-                    col = pos_nouveau_nombre[1] # Colonne où se situe la case choisie
-                    # Générer le nouveau nombre et le placer à la case libre choisie dans la grille
-                    grille_jeu.contenu[ligne][col] = nombre.generer()
-                    #print("Fusions possibles vers la gauche:", grille_jeu.fusion_gauche())
+                    if len(grille_jeu.cases_vides()) > 0:
+                        pos_nouveau_nombre = random.choice(grille_jeu.cases_vides()) # Choisir une case vide au hasard
+                        ligne = pos_nouveau_nombre[0] # Ligne où se situe la case libre choisie
+                        col = pos_nouveau_nombre[1] # Colonne où se situe la case choisie
+                        # Générer le nouveau nombre et le placer à la case libre choisie dans la grille
+                        grille_jeu.contenu[ligne][col] = nombre.generer()
+                    #print("Fusions possibles vers le bas:", grille_jeu.fusion_bas())
 
                     historique_jeu.ajouter(grille_jeu.contenu) # Mettre à jour l'historique
                     #print("Dernier état de la grille :", historique_jeu.etat_grille(len(historique_jeu.contenu)))
@@ -92,12 +94,13 @@ def jeu():
                     #print("Déplacement vers la droite.")
                     mov.deplacer_nombres("droite", grille_jeu)
                     print("Positions des cases vides :", grille_jeu.cases_vides())
-                    pos_nouveau_nombre = random.choice(grille_jeu.cases_vides())
-                    ligne = pos_nouveau_nombre[0] # Ligne où se situe la case libre choisie
-                    col = pos_nouveau_nombre[1] # Colonne où se situe la case choisie
-                    # Générer le nouveau nombre et le placer à la case libre choisie dans la grille
-                    grille_jeu.contenu[ligne][col] = nombre.generer()
-                    #print("Fusions possibles vers la droite :", grille_jeu.fusion_droite())
+                    if len(grille_jeu.cases_vides()) > 0:
+                        pos_nouveau_nombre = random.choice(grille_jeu.cases_vides()) # Choisir une case vide au hasard
+                        ligne = pos_nouveau_nombre[0] # Ligne où se situe la case libre choisie
+                        col = pos_nouveau_nombre[1] # Colonne où se situe la case choisie
+                        # Générer le nouveau nombre et le placer à la case libre choisie dans la grille
+                        grille_jeu.contenu[ligne][col] = nombre.generer()
+                    #print("Fusions possibles vers le bas:", grille_jeu.fusion_bas())
 
                     historique_jeu.ajouter(grille_jeu.contenu) # Mettre à jour l'historique
                     #print("Dernier état de la grille :", historique_jeu.etat_grille(len(historique_jeu.contenu)))
