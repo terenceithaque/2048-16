@@ -36,5 +36,15 @@ class Score:
        dossier_sauvegarde = os.path.dirname(os.path.abspath(__file__))
        print("Dossier de sauvegarde: ", dossier_sauvegarde)
        
-       fichier_sauvegarde = "score.json"
+       fichier_sauvegarde = os.path.join(dossier_sauvegarde, "score.json")
+
+       dict_scores = {
+           "score":self.valeur,
+           "max_score":self.valeur_max
+       }
+
+       # Créer le fichier de sauvegarde et écrire les données dedans
+       with open(fichier_sauvegarde, "w") as f:
+           donnees = json.dump(dict_scores, f)
+           f.close()
         
