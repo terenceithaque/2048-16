@@ -24,4 +24,6 @@ class Score:
         # Mettre à jour le meilleur score si besoin
         if self.valeur > self.valeur_max:
             self.valeur_max = self.valeur
+            
+        return self.valeur    
         
