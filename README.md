@@ -21,6 +21,8 @@ Les fichiers utilisés par le jeu:
 
     historique.py : permet de gérer l'historique des coups joués.
 
+    score.py: permet de gérer le score du joueur.
+
 
 
 Bugs à régler:
