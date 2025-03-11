@@ -1,6 +1,8 @@
 "score.py permet de gérer le score du joueur"
 import pygame
 import json
+import os
+
 
 class Score:
     "Score du joueur"
@@ -28,7 +30,9 @@ class Score:
             
         return self.valeur
     
-   def sauvegarder(self):
+    def sauvegarder(self):
        "Sauvegarde le score actuel et le score maximal dans un fichier JSON"
-       pass
+       # Le dossier de sauvegarde est celui utilisé par le script (référence __file__)
+       dossier_sauvegarde = os.path.dirname(os.path.abspath(__file__))
+       print("Dossier de sauvegarde: ", dossier_sauvegarde)
         
