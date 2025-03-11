@@ -35,4 +35,6 @@ class Score:
        # Le dossier de sauvegarde est celui utilisé par le script (référence __file__)
        dossier_sauvegarde = os.path.dirname(os.path.abspath(__file__))
        print("Dossier de sauvegarde: ", dossier_sauvegarde)
+       
+       fichier_sauvegarde = "score.json"
         
