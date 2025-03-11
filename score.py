@@ -1,5 +1,6 @@
 "score.py permet de gérer le score du joueur"
 import pygame
+import json
 
 class Score:
     "Score du joueur"
@@ -25,5 +26,9 @@ class Score:
         if self.valeur > self.valeur_max:
             self.valeur_max = self.valeur
             
-        return self.valeur    
+        return self.valeur
+    
+   def sauvegarder(self):
+       "Sauvegarde le score actuel et le score maximal dans un fichier JSON"
+       pass
         

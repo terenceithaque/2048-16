@@ -37,7 +37,8 @@ def jeu():
         # Gérer les événements du jeu
         for evenement in pygame.event.get():
             if evenement.type == pygame.QUIT: # Si le joueur veut arrêter de jouer
-                execution = False # Arrêter l'exécution
+                # Arrêter l'exécution, quitter pygame et arrêter complètement la fonction
+                execution = False
                 pygame.quit()
                 return
 
