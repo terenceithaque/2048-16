@@ -12,7 +12,16 @@ class Score:
         
         # Initialisation des valeurs
         self.valeur = valeur
-        self.valeur_max = valeur
+        self.valeur_max = valeur_max
         
         # Récupérer la fenêtre de jeu
         self.fenetre = fenetre
+        
+   def actualiser(self, points=4) -> int:
+        """Actualise le score avec une addition (score + points). Met à jour le meilleur score si besoin.
+           Renvoie le score actualisé."""
+        self.valeur += valeur
+        # Mettre à jour le meilleur score si besoin
+        if self.valeur > self.valeur_max:
+            self.valeur_max = self.valeur
+        

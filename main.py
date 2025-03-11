@@ -8,6 +8,7 @@ import grille
 import mouvement as mov
 import historique
 import undo
+import score
 from tkinter import messagebox
 
 
