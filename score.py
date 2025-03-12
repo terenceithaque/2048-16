@@ -47,4 +47,9 @@ class Score:
        with open(fichier_sauvegarde, "w") as f:
            donnees = json.dump(dict_scores, f)
            f.close()
+
+
+    def recuperer(self):
+        "Récupère le score depuis un fichier JSON."
+        pass       
         
