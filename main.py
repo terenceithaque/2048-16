@@ -20,7 +20,7 @@ def jeu():
     fenetre = pygame.display.set_mode((800, 600))
     pygame.display.set_caption("2048-16")
     grille_jeu = grille.Grille()
-    score_joueur = score.Score(valeur=0, valeur_max=0, fenetre=fenetre)
+    score_joueur = score.Score(fenetre=fenetre)
     
     deplacement_nombres = pygame.USEREVENT + 1 # Evénement pour le déplacement des nombres
     pygame.time.set_timer(deplacement_nombres, 100) # L'événement de déplacement des nombres a lieu toutes les 100 millisecondes

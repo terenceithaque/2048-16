@@ -6,7 +6,7 @@ import os
 
 class Score:
     "Score du joueur"
-    def __init__(self, valeur:int, valeur_max:int, fenetre:pygame.Surface) -> None:
+    def __init__(self, fenetre:pygame.Surface) -> None:
         """Initialise la classe Score.
            Les propriétés suivantes permettent de régler les attributs de la classe:
                - valeur: nombre entier représentant la valeur de départ (0 généralement).
