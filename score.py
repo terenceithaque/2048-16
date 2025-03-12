@@ -14,8 +14,8 @@ class Score:
                - fenetre: fenêtre pygame sur laquelle afficher le score."""
         
         # Initialisation des valeurs
-        self.valeur = valeur
-        self.valeur_max = valeur_max
+        self.valeur = self.recuperer()
+        self.valeur_max = self.recuperer()
         
         # Récupérer la fenêtre de jeu
         self.fenetre = fenetre
@@ -49,7 +49,31 @@ class Score:
            f.close()
 
 
-    def recuperer(self):
-        "Récupère le score depuis un fichier JSON."
-        pass       
+    def recuperer(self) -> tuple:
+        """Récupère le score depuis un fichier JSON. Renvoie un tuple avec (score, score_max)."""
+        
+        # Dossier de sauvegarde dans lequel chercher le fichier
+        dossier_sauvegarde = os.path.dirname(os.path.abspath(__file__))
+        # Chemin du fichier de sauvegarde du score
+        fichier_sauvegarde = os.path.join(dossier_sauvegarde, "score.json")
+
+        # Scores par défaut
+        score = 0
+        score_max = 0
+
+        # Essayer d'ouvrir le fichier
+        try:
+            with open(fichier_sauvegarde, "r") as f:
+                donnees = json.load(f)
+                score = donnees["score"]
+                score_max = donnees["max_score"]
+                f.close()
+
+            return (score, score_max)    
+
+        # En cas d'erreur
+        except Exception as e:
+            print("Erreur de lecture du score:", e)
+            return (score, score_max)        
+           
         
