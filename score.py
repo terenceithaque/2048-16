@@ -80,8 +80,9 @@ class Score:
             print("Erreur de lecture du score:", e)
             return (score, score_max)
    
-   def afficher(self):
-       "Affiche le score actuel et le meilleur score"
-       pass
+    def afficher(self, x:int, y:int) -> None:
+       "Affiche le score actuel et le meilleur score aux coordonnées x et y de la fenêtre."
+       score = self.police_affichage.render(str(self.valeur), False, (0,0,0))
+       self.fenetre.blit(score, (x, y))
            
         

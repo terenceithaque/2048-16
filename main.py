@@ -144,6 +144,7 @@ def jeu():
 
         # Afficher la grille et mettre à jour l'affichage
         grille_jeu.dessiner(fenetre)
+        score_joueur.afficher(20, 20)
         pygame.display.flip()  
 
 
