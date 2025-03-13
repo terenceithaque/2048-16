@@ -84,5 +84,6 @@ class Score:
        "Affiche le score actuel et le meilleur score aux coordonnées x et y de la fenêtre."
        score = self.police_affichage.render(str(self.valeur), True, (0,0,0))
        self.fenetre.blit(score, (x, y))
+       
            
         

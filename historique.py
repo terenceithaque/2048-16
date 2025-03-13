@@ -42,5 +42,10 @@ class Historique:
                 return etat
 
         # Si aucun résultat n'a été trouvé, renvoyer le dernier état enregistré
-        return dernier_etat    
+        return dernier_etat
+    
+    
+    def dernieres_additions(self, n:int) -> int:
+        "Renvoie la somme des additions réalisées au n-ième état de la grille."
+        pass
 
