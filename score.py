@@ -4,6 +4,7 @@ import json
 import os
 
 
+
 class Score:
     "Score du joueur"
     def __init__(self, fenetre:pygame.Surface) -> None:
@@ -17,6 +18,11 @@ class Score:
         
         # Récupérer la fenêtre de jeu
         self.fenetre = fenetre
+        
+        # Définir la police d'affichage du score
+        self.police_affichage = pygame.font.Font(None, 36)
+        # Police d'affichage du meilleur score
+        self.police_affichage_max = pygame.font.Font(None, 36) 
         
     def actualiser(self, points=4) -> int:
         """Actualise le score avec une addition (score + points). Met à jour le meilleur score si besoin.
@@ -72,6 +78,10 @@ class Score:
         # En cas d'erreur
         except Exception as e:
             print("Erreur de lecture du score:", e)
-            return (score, score_max)        
+            return (score, score_max)
+   
+   def afficher(self):
+       "Affiche le score actuel et le meilleur score"
+       pass
            
         
