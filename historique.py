@@ -47,5 +47,9 @@ class Historique:
     
     def dernieres_additions(self, n:int) -> int:
         "Renvoie la somme des additions réalisées au n-ième état de la grille."
-        pass
+        assert (type(n).__name__ == "int"), "n doit être un entier."
+        assert n >= 1, "n doit être supérieur ou égal à 1."
 
+        # Récupérer l'état de la grille pour le n-ième coup ainsi que le précédent.
+        grille_etat_n = self.contenu(n)
+        grille_etat_prec = self.contenu(n-1)
