@@ -33,6 +33,8 @@ def jeu():
 
     # Liste des objectifs à atteindre
     objectifs = [2048, 2048*2, 2048*4, 2048*8, 2048*16]
+    # Commencer le jeu avec l'objectif 2048
+    objectif_actuel = objectifs[0]
     
     deplacement_nombres = pygame.USEREVENT + 1 # Evénement pour le déplacement des nombres
     pygame.time.set_timer(deplacement_nombres, 100) # L'événement de déplacement des nombres a lieu toutes les 100 millisecondes
