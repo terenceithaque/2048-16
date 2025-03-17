@@ -53,3 +53,4 @@ class Historique:
         # Récupérer l'état de la grille pour le n-ième coup ainsi que le précédent.
         grille_etat_n = self.contenu(n)
         grille_etat_prec = self.contenu(n-1)
+        

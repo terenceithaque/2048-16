@@ -13,6 +13,15 @@ from tkinter import messagebox
 
 
 
+def demander_quitter(titre="Quitter ?", message="Voulez-vous quitter ?") -> bool:
+    "Demande au joueur s'il souhaite quitter le jeu par une boîte de dialogue avec les propriétés titre et message, renvoie un booléen."
+    # Demander au joueur s'il souhaite quitter
+    quitter = messagebox.askyesno(titre, message)
+
+    # Renvoyer la réponse du joueur
+    return quitter
+
+
 
 def jeu():
     "Boucle principale du jeu"
@@ -21,6 +30,9 @@ def jeu():
     pygame.display.set_caption("2048-16")
     grille_jeu = grille.Grille()
     score_joueur = score.Score(fenetre=fenetre)
+
+    # Liste des objectifs à atteindre
+    objectifs = [2048, 2048*2, 2048*4, 2048*8, 2048*16]
     
     deplacement_nombres = pygame.USEREVENT + 1 # Evénement pour le déplacement des nombres
     pygame.time.set_timer(deplacement_nombres, 100) # L'événement de déplacement des nombres a lieu toutes les 100 millisecondes
@@ -38,10 +50,12 @@ def jeu():
         # Gérer les événements du jeu
         for evenement in pygame.event.get():
             if evenement.type == pygame.QUIT: # Si le joueur veut arrêter de jouer
-                # Arrêter l'exécution, quitter pygame et arrêter complètement la fonction
-                execution = False
-                pygame.quit()
-                return
+                # Lui demander de confirmer
+                if demander_quitter():
+                    # Arrêter l'exécution, quitter pygame et arrêter complètement la fonction
+                    execution = False
+                    pygame.quit()
+                    return
 
             """if evenement.type == pygame.MOUSEMOTION:
                 print(pygame.mouse.get_pos())"""
