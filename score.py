@@ -82,10 +82,10 @@ class Score:
    
     def afficher(self, x:int, y:int) -> None:
        "Affiche le score actuel et le meilleur score aux coordonnées x et y de la fenêtre."
-       score = self.police_affichage.render(str(self.valeur), True, (0,0,0))
+       score = self.police_affichage.render("Score :" + str(self.valeur), True, (0,0,0))
        self.fenetre.blit(score, (x, y))
 
-       score_max = self.police_affichage_max.render(str(self.valeur_max), True, (0, 0, 0))
+       score_max = self.police_affichage_max.render("Max :" + str(self.valeur_max), True, (0, 0, 0))
        self.fenetre.blit(score_max, (x, y + 20))
            
         

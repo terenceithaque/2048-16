@@ -43,7 +43,7 @@ def jeu():
     historique_jeu.ajouter(grille_jeu.contenu) # Commencer l'historique avec la nouvelle grille de jeu
     execution = True
     # Tant que le jeu est en cours d'exécution, que la grille n'est pas pleine ou que des fusions sont toujours possibles
-    while execution or not grille_jeu.est_pleine() and any([grille_jeu.fusion_haut(), grille_jeu.fusion_bas(), grille_jeu.fusion_gauche(), grille_jeu.fusion_droite()]):
+    while execution or not grille_jeu.est_pleine() and not any([grille_jeu.fusion_haut(), grille_jeu.fusion_bas(), grille_jeu.fusion_gauche(), grille_jeu.fusion_droite()]):
         print("Valeur du score :", score_joueur.valeur)
         #print("Coordonnées (x, y)  de (2, 2) :", grille_jeu.coordonnees(2, 2, 145, 195, 5))
         fenetre.fill((255, 255, 255))
