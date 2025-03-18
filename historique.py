@@ -14,7 +14,7 @@ class Historique:
         "Ajoute un état de jeu à l'historique, renvoie le contenu mis à jour de ce dernier."
         nouvel_etat = copy.deepcopy(etat_grille) # Copier l'état de la grille spécifié
         if len(self.contenu) == 0:
-            n_coup = 0
+            n_coup = 1
 
         else:    
             n_coup = len(self.contenu) + 1 # Numéro du coup correspondant
@@ -32,7 +32,7 @@ class Historique:
         assert (cle >= 0 and cle <= len(self.contenu)), "La clé ne peut être comprise qu'entre 0 (inclus) et la longueur de l'historique (incluse)."
 
 
-        dernier_etat = self.contenu[0] # Valeur à renvoyer par défaut -> le premier état enregistré
+        dernier_etat = self.contenu[1] # Valeur à renvoyer par défaut -> le premier état enregistré
 
         # Parcourir l'historique pour retrouver l'état de la grille correspondant
         for c, etat in self.contenu.items():
@@ -52,7 +52,7 @@ class Historique:
         somme = 0
 
         # Récupérer l'état de la grille pour le n-ième coup ainsi que le précédent.
-        if len(self.contenu) >= 2:
+        if len(self.contenu) >= 3:
             grille_etat_n = self.contenu[len(self.contenu) -1]
             grille_etat_prec = self.contenu[len(self.contenu) -2]
         
