@@ -45,12 +45,19 @@ class Historique:
         return dernier_etat
     
     
-    def dernieres_additions(self, n:int) -> int:
-        "Renvoie la somme des additions réalisées au n-ième état de la grille."
-        assert (type(n).__name__ == "int"), "n doit être un entier."
-        assert n >= 1, "n doit être supérieur ou égal à 1."
+    def dernieres_additions(self) -> int:
+        "Renvoie la somme des additions réalisées au dernier état de la grille."
+
 
         # Récupérer l'état de la grille pour le n-ième coup ainsi que le précédent.
-        grille_etat_n = self.contenu(n)
-        grille_etat_prec = self.contenu(n-1)
+        grille_etat_n = self.contenu(len(self.contenu) -1)
+        grille_etat_prec = self.contenu(len(self.contenu) -2)
+        
+        # Calculer la somme actuelle des cases et la somme précédente, puis renvoyer la différence
+        somme_actuelle = sum(sum(ligne) for ligne in grille_etat_n)
+        somme_prec = sum(sum(ligne) for ligne in grille_etat_prec)
+        
+        return max(0, somme_actuelle - somme_prec)
+        
+        
         

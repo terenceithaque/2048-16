@@ -78,7 +78,9 @@ def jeu():
 
                     historique_jeu.ajouter(grille_jeu.contenu) # Mettre à jour l'historique
                     #print("Dernier état de la grille :", historique_jeu.etat_grille(len(historique_jeu.contenu)))
-
+                    
+                    points = historique_jeu.dernieres_additions()
+                    score_joueur.actualiser(points)
                     score_joueur.sauvegarder()
                     
                 if touches[pygame.K_DOWN]: # Si la touche "flèche vers le bas est pressée"
@@ -97,6 +99,8 @@ def jeu():
                     historique_jeu.ajouter(grille_jeu.contenu) # Mettre à jour l'historique
                     #print("Dernier état de la grille :", historique_jeu.etat_grille(len(historique_jeu.contenu)))
                     
+                    points = historique_jeu.dernieres_additions()
+                    score_joueur.actualiser(points)
                     score_joueur.sauvegarder()
                 if touches[pygame.K_LEFT]: # Si la touche "flèche vers la gauche est pressée"
                     #print("Déplacement vers la gauche.")
@@ -112,6 +116,8 @@ def jeu():
 
                     historique_jeu.ajouter(grille_jeu.contenu) # Mettre à jour l'historique
                     #print("Dernier état de la grille :", historique_jeu.etat_grille(len(historique_jeu.contenu)))
+                    points = historique_jeu.dernieres_additions()
+                    score_joueur.actualiser(points)
                     score_joueur.sauvegarder()
                     
                     
@@ -129,7 +135,8 @@ def jeu():
 
                     historique_jeu.ajouter(grille_jeu.contenu) # Mettre à jour l'historique
                     #print("Dernier état de la grille :", historique_jeu.etat_grille(len(historique_jeu.contenu)))
-                    
+                    points = historique_jeu.dernieres_additions()
+                    score_joueur.actualiser(points)
                     score_joueur.sauvegarder()
 
         # Si le joueur appuie sur contrôle gauche + Z
