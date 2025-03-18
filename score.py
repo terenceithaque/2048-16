@@ -13,7 +13,7 @@ class Score:
                - fenetre: fenêtre pygame sur laquelle afficher le score."""
         
         # Initialisation des valeurs
-        self.valeur = self.recuperer()[0]
+        self.valeur = 0
         self.valeur_max = self.recuperer()[1]
         
         # Récupérer la fenêtre de jeu
