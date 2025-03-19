@@ -2,7 +2,7 @@
 import pygame
 import nombre
 import random
-
+import json
 
 class Grille:
     "Grille de jeu"
@@ -192,3 +192,7 @@ class Grille:
                     # Afficher le texte
                     ecran.blit(affichage, (pos_x, pos_y))
 
+
+    def sauvegarder(self) -> None:
+        "Sauvegarde l'état de la grille au format JSON"
+        pass
