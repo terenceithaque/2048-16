@@ -3,6 +3,7 @@ import pygame
 import nombre
 import random
 import json
+import os
 
 class Grille:
     "Grille de jeu"
@@ -195,4 +196,13 @@ class Grille:
 
     def sauvegarder(self) -> None:
         "Sauvegarde l'état de la grille au format JSON"
-        pass
+        # Dossier de sauvegarde
+        dossier_sauvegarde = os.path.dirname(os.path.abspath(__file__))
+
+        fichier_sauvegarde = os.path.join(dossier_sauvegarde, "grille.json")
+
+        # Ouvrir le fichier de sauvegarde en écriture
+        with open(fichier_sauvegarde, "w") as f:
+            # Enregistrer l'état actuel de la grille et fermer le fichier
+            json.dump(self.contenu, f)
+            f.close()

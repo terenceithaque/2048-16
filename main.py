@@ -170,6 +170,7 @@ def jeu():
             if objectif_actuel != objectifs[len(objectifs) -1]:
                 continuer = messagebox.askyesno("Continuer ?", f"Bravo ! Voulez-vous continuer jusuqu'à {objectif_actuel*2} ?")
                 if continuer:
+                    grille_jeu.sauvegarder()
                     objectif_actuel *= 2
                     continue
                 else:
