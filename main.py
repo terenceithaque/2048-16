@@ -165,6 +165,22 @@ def jeu():
             grille_jeu.contenu = undo.refaire(grille_jeu.contenu, historique_jeu)            
 
 
+        # Vérifier si l'objectif est atteint$
+        if any(objectif_actuel in ligne for ligne in grille_jeu.contenu):
+            if objectif_actuel != objectifs[len(objectifs) -1]:
+                continuer = messagebox.askyesno("Continuer ?", f"Bravo ! Voulez-vous continuer jusuqu'à {objectif_actuel*2} ?")
+                if continuer:
+                    objectif_actuel *= 2
+                    continue
+                else:
+                    execution = False
+                    return
+
+            else:
+                messagebox.showinfo("Victoire !", "Vous avez atteint tous les objectifs et gagné le jeu. Félicitations !")
+                execution = False
+                return    
+
         # Afficher la grille et mettre à jour l'affichage
         grille_jeu.dessiner(fenetre)
         score_joueur.afficher(20, 20)
