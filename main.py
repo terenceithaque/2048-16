@@ -69,11 +69,13 @@ def jeu():
                     mov.deplacer_nombres("haut", grille_jeu)
                     print("Positions des cases vides :", grille_jeu.cases_vides())
                     # Choisir une case vide au hasard où générer un nouveau nombre
-                    pos_nouveau_nombre = random.choice(grille_jeu.cases_vides())
-                    ligne = pos_nouveau_nombre[0] # Ligne où se situe la case libre choisie
-                    col = pos_nouveau_nombre[1] # Colonne où se situe la case choisie
-                    # Générer le nouveau nombre et le placer à la case libre choisie dans la grille
-                    grille_jeu.contenu[ligne][col] = nombre.generer()
+                    if len(grille_jeu.cases_vides()) > 0:
+                        pos_nouveau_nombre = random.choice(grille_jeu.cases_vides())
+                        ligne = pos_nouveau_nombre[0] # Ligne où se situe la case libre choisie
+                        col = pos_nouveau_nombre[1] # Colonne où se situe la case choisie
+                        # Générer le nouveau nombre et le placer à la case libre choisie dans la grille
+                        grille_jeu.contenu[ligne][col] = nombre.generer()
+                    
                     print("Fusions possibles vers le haut :", grille_jeu.fusion_haut())
 
                     historique_jeu.ajouter(grille_jeu.contenu) # Mettre à jour l'historique
