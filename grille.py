@@ -18,6 +18,14 @@ class Grille:
     def generer(self, element=0) -> list:
         "Génère une grille de jeu de dimension 4*4, avec l'élément spécifié à chaque case."
         return [[element for _ in range(4)] for _ in range(4)]
+    
+    def restaurer(self, element=0) -> list:
+        """Restaure un état de la grille à partir d'un fichier JSON.
+           Si le fichier JSON n'existe pas, renvoie une liste remplie avec le contenu element.
+           
+           - element: contenu avec lequel remplir une grille vide, par défaut 0."""
+        
+        pass
 
     def est_pleine(self) -> bool:
         "Vérifie si la grille de jeu est pleine (aucun 0 présent) et renvoie un booléen"
