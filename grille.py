@@ -9,8 +9,7 @@ class Grille:
     "Grille de jeu"
     def __init__(self, taille=4):
         "Constructeur de la grille"
-        self.contenu = self.generer(0) # Générer le contenu de la grille avec uniquement des 0
-        self.contenu[0][0] = nombre.generer()
+        self.contenu = self.restaurer(0) # Restaurer le contenu de la grille
         print("Contenu de la grille :", self.contenu)
         self.taille = len(self.contenu) # Taille de la grille
         self.police_nombres = pygame.font.Font(None, 100) # Police de caractères pour afficher les nombres
@@ -25,7 +24,23 @@ class Grille:
            
            - element: contenu avec lequel remplir une grille vide, par défaut 0."""
         
-        pass
+        # Construire le chemin du fichier de sauvegarde
+        dossier_sauvegarde = os.path.dirname(os.path.abspath(__file__))
+
+        fichier_sauvegarde = os.path.join(dossier_sauvegarde, "grille.json")
+
+        # Ouvrir le fichier de sauvegarde
+        if os.path.exists(fichier_sauvegarde):
+            with open(fichier_sauvegarde, "r") as f:
+                grille = json.load(f)
+                f.close()
+                return grille
+
+        else:
+            grille =  self.generer(element)
+            grille[0][0] = nombre.generer()
+            return grille
+
 
     def est_pleine(self) -> bool:
         "Vérifie si la grille de jeu est pleine (aucun 0 présent) et renvoie un booléen"
