@@ -138,10 +138,14 @@ def deplacer_nombres(direction:str, grille:grille.Grille) -> list:
             # Parcourir toutes les colonnes à partir de la 2ème position
             for colonne in range(1, grille.taille):
                 # Si le nombre de la case actuelle correpond à celui de la case à gauche
-                if grille.contenu[ligne][colonne] == grille.contenu[ligne][colonne-1]:
+                fusionne = [[False] * len(grille.contenu[0]) for _ in range(grille.taille)]
+                print("fusionne:", fusionne)
+
+                if grille.contenu[ligne][colonne] == grille.contenu[ligne][colonne-1] and not fusionne[ligne][colonne-1]:
                     # Fusionner les deux cases et vider l'actuelle
                     grille.contenu[ligne][colonne-1]*=2
                     grille.contenu[ligne][colonne] = 0
+                    fusionne[ligne][colonne-1] = True
 
                 # Si la case à gauche est vide
                 elif grille.contenu[ligne][colonne-1] == 0:
@@ -154,11 +158,13 @@ def deplacer_nombres(direction:str, grille:grille.Grille) -> list:
         # Parcourir toutes les lignes
         for ligne in range(grille.taille):
             for colonne in range(len(grille.contenu[ligne]) -1):
+                fusionne = [[False] * len(grille.contenu[0]) for _ in range(grille.taille)]
                 # Si le nombre de la case actuelle correpond à celui de la case juste à droite
-                if grille.contenu[ligne][colonne] == grille.contenu[ligne][colonne+1]:
+                if grille.contenu[ligne][colonne] == grille.contenu[ligne][colonne+1] and not fusionne[ligne][colonne+1]:
                     # Fusionner les deux cases et vider l'actuelle
                     grille.contenu[ligne][colonne+1]*=2
                     grille.contenu[ligne][colonne] = 0
+                    fusionne[ligne][colonne+1] = True
 
                 # Si la case à droite est vide
                 elif grille.contenu[ligne][colonne+1] == 0:
