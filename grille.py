@@ -38,7 +38,12 @@ class Grille:
 
         else:
             grille =  self.generer(element)
-            grille[0][0] = nombre.generer()
+
+            for i in range(2):
+                x =  random.randrange(4)
+                y = random.randrange(4)
+                grille[x][y] = nombre.generer()
+            
             return grille
 
 

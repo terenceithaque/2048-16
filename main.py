@@ -32,7 +32,7 @@ def jeu():
     score_joueur = score.Score(fenetre=fenetre)
 
     # Liste des objectifs à atteindre
-    objectifs = [2048, 2048*2, 2048*4, 2048*8, 2048*16]
+    objectifs = [64, 64*2, 64*4, 64*8, 64*16]
     # Commencer le jeu avec l'objectif 2048
     objectif_actuel = objectifs[0]
     
