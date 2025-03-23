@@ -32,9 +32,18 @@ def jeu():
     score_joueur = score.Score(fenetre=fenetre)
 
     # Liste des objectifs à atteindre
-    objectifs = [64, 64*2, 64*4, 64*8, 64*16]
+    objectifs = [2048, 2048*2, 2048*4, 2048*8, 2048*16]
     # Commencer le jeu avec l'objectif 2048
     objectif_actuel = objectifs[0]
+
+    # Dictionnaire des objectifs et messages de victoire associés
+    objectifs_messages = {
+        objectifs[0]: ["C'est OK !", f" Vous avez atteint {objectifs[0]}. Améliorez-vous en visant {objectifs[1]}."],
+        objectifs[1]: ["C'est mieux !", f"Vous avez atteint {objectifs[1]}. Vous avez encore une marge de progression en essayant {objectifs[2]}."],
+        objectifs[2]: ["Un champion !", f"Vous êtes dans le haut du panier. Atteignez {objectifs[3]} pour acquérir un statut d'élite !"],
+        objectifs[3]: ["L'élite !", f"Vous vous êtes hissé(e) dans le haut du haut du panier. Mais ne vous reposez pas sur vos lauriers, car il reste un ultime, objectif, le Saint-Graal que les joueurs veulent attendre. \n Releverez-vous ce défi sans commune mesure ?"],
+        objectifs[4]: ["Le dieu du 2048 !!!!", "Vous avez triomphé de milles et une épreuves, tel un véritable descendant d'Hercule. Bienvenue chez les dieux du 2048 !"]
+    }
     
     deplacement_nombres = pygame.USEREVENT + 1 # Evénement pour le déplacement des nombres
     pygame.time.set_timer(deplacement_nombres, 100) # L'événement de déplacement des nombres a lieu toutes les 100 millisecondes
@@ -170,7 +179,7 @@ def jeu():
         # Vérifier si l'objectif est atteint$
         if any(objectif_actuel in ligne for ligne in grille_jeu.contenu):
             if objectif_actuel != objectifs[len(objectifs) -1]:
-                continuer = messagebox.askyesno("Continuer ?", f"Bravo ! Voulez-vous continuer jusuqu'à {objectif_actuel*2} ?")
+                continuer = messagebox.askyesno(objectifs_messages[objectif_actuel][0], objectifs_messages[objectif_actuel][1])
                 if continuer:
                     grille_jeu.sauvegarder()
                     objectif_actuel *= 2
