@@ -19,7 +19,15 @@ class Historique:
         else:    
             n_coup = len(self.contenu) + 1 # Numéro du coup correspondant
         self.contenu[n_coup] = nouvel_etat # Enregistrer l'état dans l'historique
+
+        if len(self.contenu) > 2:
+            if self.contenu[len(self.contenu) -1] == self.contenu[len(self.contenu) -2]:
+                del self.contenu[len(self.contenu) -1]
+
         return self.contenu
+    
+
+        
 
     def etat_grille(self, cle:int) -> list:
         """Retourne la valeur (état de la grille) correspondant à une clé (numéro d'un coup joué).
