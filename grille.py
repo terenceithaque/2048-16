@@ -1,6 +1,7 @@
 "grille.py permet de générer une grille de jeu."
 import pygame
 import nombre
+import tuile
 import random
 import json
 import os

@@ -68,8 +68,8 @@ def jeu():
                     pygame.quit()
                     return
 
-            """if evenement.type == pygame.MOUSEMOTION:
-                print(pygame.mouse.get_pos())"""
+            if evenement.type == pygame.MOUSEMOTION:
+                print(pygame.mouse.get_pos())
 
             if evenement.type == deplacement_nombres:       
 

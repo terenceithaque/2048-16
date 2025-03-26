@@ -23,6 +23,17 @@ class Tuile:
 
     def deplacer(self, direction:str) -> None:
         "Déplace la tuile dans une direction donnée."
-        pass     
+        if direction == "haut":
+            self.y += 5
+
+        if direction == "bas":
+            self.y -= 5
+
+
+        if direction == "gauche":
+            self.x += 5
+
+        if direction == "droite":
+            self.x -= 5                 
 
     
